@@ -39,26 +39,14 @@
     estado.tarefas.push(tarefaNova);
     estado.tarefaTemp = '';
   }
-
-  const rederizaTarefas = () => {
-    if (estado.tarefas.length <= 0) {
-      return getTarefasPendentes()
-    } else {
-      return estado.tarefas; 
-    }
-  }
 </script>
 
 <template>
   <div class="container">
     <Cabecalho :tarefas-pendentes="getTarefasPendentes().length"/>
     <Formulario :trocarFiltro="evento => estado.filtro = evento.target.value" :tarefa-temp="estado.tarefaTemp" :edita-tarefa-temp="evento => estado.tarefaTemp = evento.target.value" :cadastra-tarefa="cadastraTarefa"/>
-    <ListaDeTarefas :tarefas="getTarefasFiltradas()" :renderiza="rederizaTarefas()"/>
+    <ListaDeTarefas :tarefas="getTarefasFiltradas()"/>
   </div>
 </template>
 
-<style scoped>
-  .done {
-    text-decoration: line-through;
-  }
-</style>
+
